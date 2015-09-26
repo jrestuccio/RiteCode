@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Ftc.create!([{ code: 'A123' , exception: 1 , shortdesc: 'test' , longdesc: 'moretest'},
+	{ code: 'A555' , exception: 0 , shortdesc: '555test' , longdesc: 'more555test'}
+
+
+
+	])

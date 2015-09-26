@@ -1,0 +1,2 @@
+module FeeTicketConversionHelper
+end

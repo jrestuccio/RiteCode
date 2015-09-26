@@ -1,0 +1,64 @@
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<style>
+body {
+	background-color: blue;
+}
+
+h1 {
+	color: white;
+	text-align: center;
+}
+h2,h3,p,a {
+	color:white;
+}
+
+.grey {
+		#background-color: blue;
+		padding: 20p;
+}
+</style>
+</head>
+
+
+<h1>Fee Ticket Conversion</h1>
+<p>
+	Download:
+	<%= link_to "CSV", ftchome_path(format: "csv") %>
+	<%= link_to "XLSX", ftchome_path(format: "xlsx") %>
+</p>
+<div class = "grey">
+	<div class ="container">
+		<div class="well">
+<table class="table-bordered table">
+<tr>
+	<th> Code </th>
+	<th> Exception </th>
+	<th> Short Desc. </th>
+	<th> Long Desc. </th>
+</tr>
+
+<% @myCodes.each do |mc| %>
+<tr>
+	<td> <%= mc.code %> </td>
+	<td> <%= mc.exception %></td>
+	<td> <%= mc.shortdesc %></td>
+	<td> <%= mc.longdesc %></td>
+</tr>
+<% end %>
+</table>
+		</div>
+	</div>
+</div>
+
+<h3>Import ICD-9 codes to be converted</h3>
+
+
+
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

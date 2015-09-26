@@ -1,0 +1,66 @@
+
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<style>
+.grey {
+		background-color: black;
+		padding: 20p;
+}
+
+</style>
+
+</head>
+
+<h1>RiteCode HomePage</h1>
+<div class = "grey">
+	<div class ="container">
+		<div class="well">
+
+<p>
+	Download:
+	<%= link_to "PDF", icd10s_path(format: "pdf") %>
+	<h1>ICD 10</h1>
+</p>
+
+<table id="codes">
+	<tr>
+		<th>Code</th>
+		<th>Exception</th>
+		<th>Short Desc</th>
+		<th>Long Desc</th>
+	</tr>
+
+	<% @icd10s.each do |icd10| %>
+	<tr>
+		<td> <%= icd10.code %></td>
+		<td> <%= icd10.Exception %></td>
+		<td> <%= icd10.shortdesc %></td>
+		<td> <%= icd10.longdesc %></td>
+	</tr>
+	<% end %>
+</table>
+
+		<div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

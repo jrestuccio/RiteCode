@@ -1,62 +1,58 @@
+
+
 <head>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
 <style>
-body {
-	background-color: blue;
-}
-
-h1 {
-	color: white;
-	text-align: center;
-}
-h2,h3,p,a {
-	color:white;
-}
-
 .grey {
-		#background-color: blue;
+		background-color: blue;
 		padding: 20p;
 }
+
 </style>
+
 </head>
 
+<h1>Fee Ticket Conversion </h1>
 
-<h1>Fee Ticket Conversion</h1>
-<p>
+<div>
+	<p>
 	Download:
 	<%= link_to "CSV", ftchome_path(format: "csv") %>
-	<%= link_to "XLSX", ftchome_path(format: "xlsx") %>
-</p>
+	<%= link_to "XLS", ftchome_path(format: "xls") %>
+	</p>
+</div>
+
 <div class = "grey">
 	<div class ="container">
 		<div class="well">
 <table class="table-bordered table">
-<tr>
-	<th> Code </th>
-	<th> Exception </th>
-	<th> Short Desc. </th>
-	<th> Long Desc. </th>
-</tr>
+	<tr>
+		<th>Code</th>
+		<th>Exception</th>
+		<th>Short Description</th>
+		<th>Long Description</th>
+	</tr>
 
-<% @myCodes.each do |mc| %>
+<% @ftcs.each do |ftc| %>
 <tr>
-	<td> <%= mc.code %> </td>
-	<td> <%= mc.exception %></td>
-	<td> <%= mc.shortdesc %></td>
-	<td> <%= mc.longdesc %></td>
+	<td><%= ftc.code %></td>
+	<td><%= ftc.exception %></td>
+	<td><%= ftc.shortdesc %></td>
+	<td><%= ftc.longdesc %></td>
 </tr>
 <% end %>
 </table>
-		</div>
+<p>
+
+</p>
+		<div>
 	</div>
 </div>
-
-<h3>Import ICD-9 codes to be converted</h3>
-
-
 
 
 

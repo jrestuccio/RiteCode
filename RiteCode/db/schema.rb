@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926041511) do
+ActiveRecord::Schema.define(version: 20150928202800) do
 
   create_table "ftcs", force: :cascade do |t|
-    t.string   "code"
-    t.boolean  "exception"
-    t.string   "shortdesc"
-    t.string   "longdesc"
+    t.string   "code",       null: false
+    t.boolean  "exception",  null: false
+    t.string   "shortdesc",  null: false
+    t.string   "longdesc",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

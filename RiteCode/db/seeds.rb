@@ -13,3 +13,13 @@ Ftc.create!([{ code: 'A123' , exception: 1 , shortdesc: 'test' , longdesc: 'more
 
 
 	])
+
+
+xlsx = Roo::Spreadsheet.open('./import/ICD_10_Codes/icd10cm_order_2016.xlsx')
+header = xlsx.row(1)
+
+xlsx.each(code: 'Code', exception: 'Exception', shortdesc: "Short Description", longdesc: "Long Description") do |hash|
+  puts hash.inspect
+  # => { id: 1, name: 'John Smith' }
+end
+

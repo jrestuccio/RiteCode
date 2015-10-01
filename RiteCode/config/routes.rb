@@ -3,23 +3,16 @@ Rails.application.routes.draw do
 
    resources :ftc do
      collection {post :import }
-
    end
 
+get 'ftc/index', to:'ftc#index', as:'ftchome'
 
- get 'fee_ticket_conversion/index', to:'fee_ticket_conversion#index', as:'ftchome'
-  root 'static_pages#home'
+root to: 'ftc#index'
 
 
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-
-
-
-
-
 
 
   # You can have the root of your site routed with "root"

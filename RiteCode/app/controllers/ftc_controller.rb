@@ -6,6 +6,13 @@ def index
 	@ftcs = Ftc.order(:code)   #the @ftcs must match our table name!
 	end
 
+# def create
+# 	ftc.create(ftc_params)
+# end
+
+def ftc_params
+	params.require(:ftc).permit(:code,:exception,:shortdesc,:longdesc)
+end
 
 
 def show
@@ -20,5 +27,11 @@ def show
 	end
 end
 
+
+def import
+	Ftc.import(params[:file])
+	redirect_to ftc_index_path, notice: "Codes were added Successfully"
+	#redirect_to import_ftc_index_path, notice: "Codes were added Successfully"
+end
 
 end

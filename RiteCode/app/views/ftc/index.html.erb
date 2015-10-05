@@ -47,9 +47,15 @@
 </tr>
 <% end %>
 </table>
-<p>
 
-</p>
+<h3> Import some codes</h3>
+<%= form_tag import_ftc_index_path, multipart: true do %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "Upload Codes" %>
+<% end %>
+
+
+
 		<div>
 	</div>
 </div>

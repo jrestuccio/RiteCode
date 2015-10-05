@@ -7,19 +7,21 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Ftc.create!([{ code: 'A123' , exception: 1 , shortdesc: 'test' , longdesc: 'moretest'},
-	{ code: 'A555' , exception: 0 , shortdesc: '555test' , longdesc: 'more555test'}
+# Ftc.create!([{ code: 'A123' , exception: 1 , shortdesc: 'test' , longdesc: 'moretest'},
+# 	{ code: 'A555' , exception: 0 , shortdesc: '555test' , longdesc: 'more555test'}
+# 	])
 
 
+spreadsheet = Roo::Spreadsheet.open('./import/ICD_10_Codes/icd10cm_order_2016_original.xlsx')
 
-	])
+spreadsheet.each(code: 'code', exception: 'exception', shortdesc: "shortdesc", longdesc: "longdesc") do |hash|
+  #puts hash.inspect
 
+if hash[:code] == "code"
+	puts hash.inspect
+else
+	Ftc.create!( code: hash[:code], exception: hash[:exception], shortdesc: hash[:shortdesc], longdesc: hash[:longdesc] )
+end
 
-xlsx = Roo::Spreadsheet.open('./import/ICD_10_Codes/icd10cm_order_2016.xlsx')
-header = xlsx.row(1)
-
-xlsx.each(code: 'Code', exception: 'Exception', shortdesc: "Short Description", longdesc: "Long Description") do |hash|
-  puts hash.inspect
-  # => { id: 1, name: 'John Smith' }
 end
 

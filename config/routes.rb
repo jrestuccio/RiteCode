@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
 
+get 'icd10s/index', to:'icd10#index', as:'icd10home'
+   resources :icd10 do
+     collection {post :import }
+   end
+
    resources :ftc do
      collection {post :import }
    end

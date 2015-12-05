@@ -1,10 +1,8 @@
 class FtcController < ApplicationController
 
 def index
-	#@ftcs = Ftc.all
-
 	@ftcs = Ftc.order(:code)   #the @ftcs must match our table name!
-	end
+end
 
 # def create
 # 	ftc.create(ftc_params)

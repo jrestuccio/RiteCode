@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  exception: false
+  shortdesc: MyString
+  longdesc: MyString
+
+two:
+  code: MyString
+  exception: false
+  shortdesc: MyString
+  longdesc: MyString

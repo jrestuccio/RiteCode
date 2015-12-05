@@ -1,4 +1,4 @@
-Code,Exception,ShortDesc,LongDesc
+code,exception,shortdesc,longdesc
 A00,0,Cholera,Cholera
 A000,1,"Cholera due to Vibrio cholerae 01, biovar cholerae","Cholera due to Vibrio cholerae 01, biovar cholerae"
 A001,1,"Cholera due to Vibrio cholerae 01, biovar eltor","Cholera due to Vibrio cholerae 01, biovar eltor"

@@ -37,3 +37,7 @@
 # end
 
 # rc.put_copy_end
+
+
+Icd10.import('./import/ICD_10_Codes/icd10cm_order_2016.xlsx')
+#Icd9.import()

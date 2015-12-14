@@ -1,5 +1,7 @@
 class Icd10 < ActiveRecord::Base
 
+belongs_to :i9gem
+belongs_to :i10gem
 
 def self.import(file)
 

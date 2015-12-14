@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  i10code: MyText
+  i9code: MyText
+  approximate: false
+  nomap: false
+  combination: false
+  scenario: 1
+  choicelist: 1
+
+two:
+  i10code: MyText
+  i9code: MyText
+  approximate: false
+  nomap: false
+  combination: false
+  scenario: 1
+  choicelist: 1

@@ -38,6 +38,14 @@
 
 # rc.put_copy_end
 
-
+#import all icd10 codes
 Icd10.import('./import/ICD_10_Codes/icd10cm_order_2016.xlsx')
+
+#import all icd9 codes
 Icd9.import('./import/ICD_9/CMS32_DESC_LONG_SHORT_DX.xlsx')
+
+#import i9->i10 gem converions
+I9gem.import('./import/ICD9_10_Gems/2016_I9gem.xlsx')
+
+#import i10->i9 gem converions
+I10gem.import('./import/ICD9_10_Gems/2016_I10gem.xlsx')

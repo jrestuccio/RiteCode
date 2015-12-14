@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214061927) do
+ActiveRecord::Schema.define(version: 20151214210645) do
 
   create_table "ftcs", force: :cascade do |t|
     t.string   "code",       null: false
@@ -21,6 +21,32 @@ ActiveRecord::Schema.define(version: 20151214061927) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "i10gems", force: :cascade do |t|
+    t.text     "i10code"
+    t.text     "i9code"
+    t.boolean  "approximate"
+    t.boolean  "nomap"
+    t.boolean  "combination"
+    t.integer  "scenario"
+    t.integer  "choicelist"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "i9gems", force: :cascade do |t|
+    t.text     "i9code"
+    t.text     "i10code"
+    t.boolean  "approximate"
+    t.boolean  "nomap"
+    t.boolean  "combination"
+    t.integer  "scenario"
+    t.integer  "choicelist"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "i9gems", ["i9code"], name: "index_i9gems_on_i9code"
 
   create_table "icd10s", force: :cascade do |t|
     t.string   "code"

@@ -5,11 +5,11 @@ def self.import(file)
 	spreadsheet = Roo::Spreadsheet.open(file)
 
 	ActiveRecord::Base.transaction do
-		spreadsheet.each(code: 'code', exception: 'exception', shortdesc: "shortdesc", longdesc: "longdesc") do |hash|
+		spreadsheet.each(code: 'code', shortdesc: "shortdesc", longdesc: "longdesc") do |hash|
 			if hash[:code] == "code"
 				#puts hash.inspect
 			else
-				Ftc.create!( code: hash[:code], exception: hash[:exception].to_i.to_b, shortdesc: hash[:shortdesc], longdesc: hash[:longdesc] )		
+				Ftc.create!( code: hash[:code],  shortdesc: hash[:shortdesc], longdesc: hash[:longdesc] )		
 			end
 		end	
 	end

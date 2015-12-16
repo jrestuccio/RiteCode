@@ -1,19 +1,9 @@
-<head>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-<style>
-.grey {
-		background-color: blue;
-		padding: 20p;
-}
-
-</style>
-
-</head>
+<!--Script for select2 searchable dropdown-->
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.select-two').select2();
+  });
+</script>	
 
 <h1>Fee Ticket Conversion </h1>
 
@@ -28,6 +18,21 @@
 <div class = "grey">
 	<div class ="container">
 		<div class="well">
+			
+			<!--Select serch is added here -->
+			<div class="row">
+				<%= form_for(:create) do |f| %>
+				<div class="col-md-6 offset-col-md-1">
+					
+					<%= collection_select(:icd9, :idc9_id, @icd9s, :id, :code_and_discrip, {:prompt => true}, { class: "form-control select-two"}) %>
+				</div>
+				<div class="col-md-2">
+					<%= f.submit "Add Code", class: "btn" %>
+
+				</div>
+				<% end %>
+			</div>
+
 <table class="table-bordered table">
 	<tr>
 		<th>Code</th>
@@ -55,8 +60,3 @@
 		<div>
 	</div>
 </div>
-
-
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

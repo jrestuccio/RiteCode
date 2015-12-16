@@ -30,6 +30,8 @@ def self.to_csv(options = {})
     end
 end
 
-
+  def code_and_discrip
+    "#{code}: #{shortdesc}"
+  end
 
 end

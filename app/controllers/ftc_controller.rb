@@ -3,11 +3,9 @@ class FtcController < ApplicationController
 def index
 	@ftcs = Ftc.order(:code)   #the @ftcs must match our table name!
 	@icd9s = Icd9.order(:code)
+	@icd10s = Icd10.order(:code)
 end
 
-# def create
-# 	ftc.create(ftc_params)
-# end
 
 def ftc_params
 	params.require(:ftc).permit(:code,:exception,:shortdesc,:longdesc)

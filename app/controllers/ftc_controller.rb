@@ -28,9 +28,24 @@ end
 
 
 def import
+
 	Ftc.import(params[:file])
 	redirect_to ftc_index_path, notice: "Codes were added Successfully"
 	#redirect_to import_ftc_index_path, notice: "Codes were added Successfully"
 end
+
+  # some things need to change in this function
+  # in line 42 the hardcoded "exception: false" should be removed
+  def create
+  	if params[:icd9][:idc9_id].present?
+	  	icd9 = Icd9.find(params[:icd9][:idc9_id])
+	  	@ftc = Ftc.create(code: icd9.code, exception: false, shortdesc: icd9.shortdesc, longdesc: icd9.longdesc)
+		@ftc.save!
+	  	redirect_to ftc_index_path, notice: "Code was added Successfully"
+  	else
+  		redirect_to ftc_index_path, notice: "No addtional code selected."
+  	end
+
+  end
 
 end

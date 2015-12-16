@@ -8,10 +8,6 @@
 <h1>Fee Ticket Conversion </h1>
 
 <div>
-<%= select_tag :code, options_from_collection_for_select(@icd9s, :code, :code, params[:code]), include_blank: true, class: "select-two form-control" %>
-</div>
-
-<div>
 	<p>
 	Download:
 	<%= link_to "CSV", ftchome_path(format: "csv") %>
@@ -25,12 +21,16 @@
 			
 			<!--Select serch is added here -->
 			<div class="row">
-				<div class="col-md-6">
-					<%= select_tag :code, options_from_collection_for_select(@icd9s, :code, :code_and_discrip, params[:code]), include_blank: true, class: "select-two form-control" %>
+				<%= form_for(:create) do |f| %>
+				<div class="col-md-6 offset-col-md-1">
+					
+					<%= collection_select(:icd9, :idc9_id, @icd9s, :id, :code_and_discrip, {:prompt => true}, { class: "form-control select-two"}) %>
 				</div>
 				<div class="col-md-2">
-					
+					<%= f.submit "Add Code", class: "btn" %>
+
 				</div>
+				<% end %>
 			</div>
 
 <table class="table-bordered table">

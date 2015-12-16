@@ -39,7 +39,7 @@ end
   def create
   	if params[:icd9][:idc9_id].present?
 	  	icd9 = Icd9.find(params[:icd9][:idc9_id])
-	  	@ftc = Ftc.create(code: icd9.code, exception: false, shortdesc: icd9.shortdesc, longdesc: icd9.longdesc)
+	  	@ftc = Ftc.create(code: icd9.code, shortdesc: icd9.shortdesc, longdesc: icd9.longdesc)
 		@ftc.save!
 	  	redirect_to ftc_index_path, notice: "Code was added Successfully"
   	else

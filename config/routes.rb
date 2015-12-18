@@ -9,9 +9,11 @@ get 'icd10s/index', to:'icd10#index', as:'icd10home'
 
    resources :ftc do
      collection {post :import }
+     collection {post :clear }
    end
 
 get 'ftc/index', to:'ftc#index', as:'ftchome'
+
 
 root to: 'ftc#index'
 

@@ -26,7 +26,6 @@ end
 
 
 def import
-
 	Ftc.import(params[:file])
 	redirect_to ftc_index_path, notice: "Codes were added Successfully"
 	#redirect_to import_ftc_index_path, notice: "Codes were added Successfully"
@@ -44,6 +43,11 @@ end
   		redirect_to ftc_index_path, notice: "No addtional code selected."
   	end
 
+  end
+
+  def clear
+	Ftc.delete_all
+	redirect_to ftc_index_path
   end
 
 end

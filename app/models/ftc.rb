@@ -15,10 +15,6 @@ def self.import(file)
 	end
 end
 	
-	
-
-
-
 
 def self.to_csv(options = {})
 	CSV.generate(options) do |csv|

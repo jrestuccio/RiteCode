@@ -15,24 +15,30 @@
 	</p>
 </div>
 
+
+<div class="col-md-2">
+	<%= button_to "Clear Codes", {action: "clear" }, class: "btn btn-danger" %>
+</div>
+
 <div class = "grey">
 	<div class ="container">
-		<div class="well">
-			
+		<div class="well">			
 			<!--Select serch is added here -->
+			<%= label_tag('icd9','Select an ICD-9 code') %>
 			<div class="row">
-				<%= form_for(:create) do |f| %>
-				<div class="col-md-6 offset-col-md-1">
-					
+				<%= form_for(:create) do |f| %>				
+				<div class="col-md-6 offset-col-md-1">					
 					<%= collection_select(:icd9, :idc9_id, @icd9s, :id, :code_and_discrip, {:prompt => true}, { class: "form-control select-two"}) %>
 				</div>
 				<div class="col-md-2">
-					<%= f.submit "Add Code", class: "btn" %>
-
+					<%= f.submit "Add Code", class: "btn btn-primary" %>
 				</div>
+				
+				
 				<% end %>
 			</div>
 
+<br />
 <table class="table-bordered table">
 	<tr>
 		<th>Code</th>

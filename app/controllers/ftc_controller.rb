@@ -35,10 +35,13 @@ end
   # in line 42 the hardcoded "exception: false" should be removed
   def create
   	if params[:icd9][:idc9_id].present?
-	  	icd9 = Icd9.find(params[:icd9][:idc9_id])
-	  	@ftc = Ftc.create(code: icd9.code, shortdesc: icd9.shortdesc, longdesc: icd9.longdesc)
-		@ftc.save!
-	  	redirect_to ftc_index_path, notice: "Code was added Successfully"
+	  	icd9 = Icd9.find(params[:icd9][:idc9_id])        
+	  	@ftc = Ftc.create(code: icd9.code, shortdesc: icd9.shortdesc, longdesc: icd9.longdesc)       
+		if @ftc.valid?
+	  	    redirect_to ftc_index_path, notice: "Code was added Successfully"
+        else
+            redirect_to ftc_index_path, notice: "That code is already in your report."
+        end
   	else
   		redirect_to ftc_index_path, notice: "No addtional code selected."
   	end

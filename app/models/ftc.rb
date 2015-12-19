@@ -1,5 +1,6 @@
 class Ftc < ActiveRecord::Base
 
+validates_uniqueness_of :code , :message => "already exists"
 
 def self.import(file)
 	spreadsheet = Roo::Spreadsheet.open(file)

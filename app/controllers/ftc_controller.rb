@@ -53,4 +53,13 @@ end
 	redirect_to ftc_index_path
   end
 
+  def convert
+    @ftcs = Ftc.order(:code)
+
+   @temp = create_table(:code, :shortdesc, :longdesc, temporary: true,
+            as: "SELECT * FROM @ftcs")    
+
+  end
+
+
 end

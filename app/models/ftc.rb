@@ -10,7 +10,8 @@ def self.import(file)
 			if hash[:code] == "code"
 				#puts hash.inspect
 			else
-				Ftc.create!( code: hash[:code],  shortdesc: hash[:shortdesc], longdesc: hash[:longdesc] )		
+				Ftc.create( code: hash[:code],  shortdesc: hash[:shortdesc], longdesc: hash[:longdesc] )
+
 			end
 		end	
 	end

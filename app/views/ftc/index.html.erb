@@ -23,8 +23,15 @@
 <div class = "grey">
 	<div class ="container">
 		<div class="well">			
-			<!--Select serch is added here -->
+			<% if flash[:notice] %>			
+				<div class="well">			
+			    	<div id="notice"><%= flash[:notice] %></div>
+			    </div>
+			<% end %>
+		
 			<%= label_tag('icd9','Select an ICD-9 code') %>
+			
+			<!--Select search is added here -->
 			<div class="row">
 				<%= form_for(:create) do |f| %>				
 				<div class="col-md-6 offset-col-md-1">					
@@ -56,13 +63,12 @@
 </table>
 
 <h3> Import some codes</h3>
-<%= form_tag import_ftc_index_path, multipart: true do %>
-	<%= file_field_tag :file %>
-	<%= submit_tag "Upload Codes" %>
-<% end %>
+	<%= form_tag import_ftc_index_path, multipart: true do %>
+		<%= file_field_tag :file %>
+		<%= submit_tag "Upload Codes" %>
+	<% end %>
 
-
-
+	
 		<div>
 	</div>
 </div>

@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 
 #These 2 lines are for RVM
 ruby "2.2.1"
-#ruby-gemset-RiteCode	
+#ruby-gemset-RiteCode
+
+# Added the gem devise for top secret password support :)
+gem 'devise'	
 
 #install roo gem
 gem 'roo', '2.1.0'

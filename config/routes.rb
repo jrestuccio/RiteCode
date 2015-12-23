@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users
 get 'icd10s/index', to:'icd10#index', as:'icd10home'
 
    resources :icd10 do

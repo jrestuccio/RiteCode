@@ -5,6 +5,7 @@ class CreateFtcs < ActiveRecord::Migration
     	t.boolean :exception, null: false
     	t.string :shortdesc, null: false
     	t.string :longdesc, null: false
+    	t.belongs_to :user, index: true
       t.timestamps null: false
     end
   end

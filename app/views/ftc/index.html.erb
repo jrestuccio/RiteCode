@@ -62,6 +62,23 @@
 <% end %>
 </table>
 
+<table class="table-bordered table">
+	<tr>
+		<th>Code</th>
+		<th>Short Description</th>
+		<th>Long Description</th>
+	</tr>
+
+<% @ftcsall.each do |f| %>
+<tr>
+	<td><%= f.code %></td>
+	<td><%= f.shortdesc %></td>
+	<td><%= f.longdesc %></td>
+	<td><%= f.user.email %></td>
+</tr>
+<% end %>
+</table>
+
 <h3> Import some codes</h3>
 	<%= form_tag import_ftc_index_path, multipart: true do %>
 		<%= file_field_tag :file %>

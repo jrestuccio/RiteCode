@@ -1,9 +1,12 @@
 class FtcController < ApplicationController
 
 def index
-	@ftcs = Ftc.order(:code)   #the @ftcs must match our table name!
+	@uid = current_or_guest_user.id
+	@ftcs = Ftc.where(:user => @uid).order(:code)
+	@ftcsall = Ftc.order(:code)  #the @ftcs must match our table name!
 	@icd9s = Icd9.order(:code)
 	@icd10s = Icd10.order(:code)
+
 end
 
 
@@ -26,7 +29,7 @@ end
 
 
 def import
-	Ftc.import(params[:file])
+	@ftc = Ftc.import(params[:file])
 	redirect_to ftc_index_path, notice: "Codes were added Successfully"
 	#redirect_to import_ftc_index_path, notice: "Codes were added Successfully"
 end
@@ -36,7 +39,7 @@ end
   def create
   	if params[:icd9][:idc9_id].present?
 	  	icd9 = Icd9.find(params[:icd9][:idc9_id])        
-	  	@ftc = Ftc.create(code: icd9.code, shortdesc: icd9.shortdesc, longdesc: icd9.longdesc)       
+	  	@ftc = Ftc.create(code: icd9.code, shortdesc: icd9.shortdesc, longdesc: icd9.longdesc, user: current_or_guest_user)      
 		if @ftc.valid?
 	  	    redirect_to ftc_index_path, notice: "Code was added Successfully"
         else
@@ -58,6 +61,10 @@ end
 
    @temp = create_table(:code, :shortdesc, :longdesc, temporary: true,
             as: "SELECT * FROM @ftcs")    
+  end
+
+  # a delete to be called when the user is destroied
+  def delete
 
   end
 

@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 ruby "2.2.1"
 #ruby-gemset-RiteCode
 
+# this is to run cron jobs
+gem 'whenever', :require => false
+
 # Added the gem devise for top secret password support :)
 gem 'devise'	
 

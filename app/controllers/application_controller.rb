@@ -3,6 +3,23 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+
+  # before_filter :session_expires
+  # before_filter :update_session_time, :except => [:login, :logout]
+
+  # def session_expires
+  #   @time_left = (session[:expires_at] - Time.now).to_i
+  #   @guid = session[:guest_user_id]
+  #   unless @time_left > 0
+  #     flash[:error] = 'Lorem Ipsum.'
+  #     @guid.destroy
+  #   end
+  # end
+
+  # def update_session_time
+  #   session[:expires_at] = 60.minutes.from_now
+  # end
+
   # go through this and determine what is needed
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
